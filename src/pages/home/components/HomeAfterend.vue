@@ -1,19 +1,17 @@
 <template>
-	<div class="homepage">
-	  <div>
-	    homepage
-	  </div>
-	</div>
+  <div class="homeafterend">
+    后端页面
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'HomePage'
+  name: 'HomeAfterend',
 }
 </script>
 
 <style>
-	.homepage{
+	.homeafterend{
 		position: fixed;
 		top:.8rem;
 		left: 0;

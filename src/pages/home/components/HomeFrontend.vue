@@ -1,19 +1,17 @@
 <template>
-	<div class="homepage">
-	  <div>
-	    homepage
-	  </div>
-	</div>
+  <div class="homefrontend">
+    前端
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'HomePage'
+  name: 'HomeFrontend',
 }
 </script>
 
 <style>
-	.homepage{
+	.homefrontend{
 		position: fixed;
 		top:.8rem;
 		left: 0;

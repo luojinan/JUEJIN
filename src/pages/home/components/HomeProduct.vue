@@ -1,19 +1,17 @@
 <template>
-	<div class="homepage">
-	  <div>
-	    homepage
-	  </div>
-	</div>
+  <div class="homeproduct">
+    产品页面
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'HomePage'
+  name: 'HomeProduct',
 }
 </script>
 
 <style>
-	.homepage{
+	.homeproduct{
 		position: fixed;
 		top:.8rem;
 		left: 0;
