@@ -18,9 +18,9 @@
 	    	<div class="homepage-recommend__item--info">
 	    		<div class="homepage-recommend__item--title">{{item.title}}</div>
 	    		<div class="homepage-recommend__item--desc">
-	    		<span class="iconfont">&#xe627;</span>{{item.like}}
-	    		<span class="iconfont">&#xe62f;</span>{{item.author}}
-	    		<span class="iconfont">&#xe627;</span>{{item.time}}
+		    		<span class="iconfont">&#xe627;</span>{{item.like}}
+		    		<span class="iconfont">&#xe62f;</span>{{item.author}}
+		    		<span class="iconfont">&#xe627;</span>{{item.time}}
 	    		</div>
 	    	</div>
 	    	<img class="homepage-recommend__item--img" :src="item.list_img" />
@@ -36,9 +36,9 @@
 	    	<div class="homepage-recommend__item--info">
 	    		<div class="homepage-recommend__item--title">{{item.title}}</div>
 	    		<div class="homepage-recommend__item--desc">
-	    		<span class="iconfont">&#xe627;</span>{{item.like}}
-	    		<span class="iconfont">&#xe62f;</span>{{item.author}}
-	    		<span class="iconfont">&#xe627;</span>{{item.time}}
+		    		<span class="iconfont">&#xe627;</span>{{item.like}}
+		    		<span class="iconfont">&#xe62f;</span>{{item.author}}
+		    		<span class="iconfont">&#xe627;</span>{{item.time}}
 	    		</div>
 	    	</div>
 	    	<img class="homepage-recommend__item--img" :src="item.list_img" />
