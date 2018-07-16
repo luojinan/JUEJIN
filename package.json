@@ -17,6 +17,7 @@
     "better-scroll": "^1.12.4",
     "fastclick": "^1.0.6",
     "vue": "^2.5.2",
+    "vue-awesome-swiper": "^2.6.7",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
