@@ -8,12 +8,19 @@
 
 <script>
 import HomeHeader from './components/HomeHeader'
+import axios from 'axios'	//使用axios胡群殴ajax数据
 
 export default {
   name: 'Home',
   components:{
   	HomeHeader
-  }
+  },
+  data:function(){
+  	return {
+  		data:{}
+  	}
+  },
+
 }
 </script>
 

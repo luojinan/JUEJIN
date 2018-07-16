@@ -6,6 +6,7 @@ import router from './router'
 import fastclick from 'fastclick'	//移动端点击插件--引入
 import iconfont from 'styles/iconfont.css'
 
+
 //移动端样式准备
 import 'styles/reset.css'
 import 'styles/border.css'
