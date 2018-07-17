@@ -2,12 +2,17 @@
 	<div class="update">
 		<div class="update-header">
 			<router-link 
-				to="/mine"
+				to="/mine/update"
 				tag="div"
 				class="update-header__left">
 				<span class="iconfont update-header__icon">&#xe624;</span>
 			</router-link>
-			<div class="update-header__title">修改资料</div>
+			<div class="update-header__title">修改名字</div>
+			<div class="update-header__Sure">保存</div>
+		</div>
+		<div class="update-input">
+			<input type="text" v-model="name"> </input>
+			<p>好的名字让人更容易记住你{{name}}</p>
 		</div>
 	</div>
 </template>
@@ -18,7 +23,7 @@ export default {
   name: 'MineChange',
   data(){
 	  return {
-	  	
+	  	name:""
 	  }
 	}
  }
@@ -35,6 +40,7 @@ export default {
 		background-color: #eee;
 	}
 	.update-header{
+		position: relative;
 		display: flex;
 		height: .8rem;
 		line-height: .8rem;
@@ -47,8 +53,22 @@ export default {
 		width: .5rem;
 		margin-left: .2rem;
 	}
-	.update-header__title{
-		margin-left: 3rem;
+	.update-header__Sure{
+		position: absolute;
+		right: .4rem;
+		color: #007AFF;
 	}
-	
+	.update-input{
+		padding: .2rem;
+	}
+	.update-input input{
+		height: .64rem;
+		width: 100%;
+		background-color: #eee;
+		border-bottom: solid .01rem #007AFF;
+	}
+	.update-input p{
+		margin-top: .2rem;
+		color: #696969;
+	}
 </style>
