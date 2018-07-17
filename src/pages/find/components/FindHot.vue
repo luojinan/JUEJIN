@@ -74,25 +74,30 @@ export default {
 		margin-left: .1rem;
 		font-size: .32rem;
 	}
+
 	.findhot-swiper{
 		overflow: hidden;
 		height: 0;
 		padding-bottom: 30%;
 	}
 	.findhot-swiper__item{
+		flex: 1;
 		float: left;
 		width: 50%;
 	}
 	.findhot-swiper__img{
-		height: 80%;
 		position: relative;
+		width: 100%;
+
+
+		border-radius: .2rem;
 	}
 	.findhot-swiper__title{
 		position: absolute;
-		top:45%;
+		top:.2rem;
 		left:.2rem;
 		right: .2rem;
 		color: #fff;
-		font-size: .48rem;
+		font-size: .32rem;
 	}
 </style>
