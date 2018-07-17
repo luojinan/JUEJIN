@@ -1,7 +1,10 @@
 <template>
   <div class="mine">
     <div class="mine-header">我的</div>
-    <div class="mine-info">
+    <router-link 
+		tag="div"
+		to="/mine/update"
+    	class="mine-info">
     	<img src="https://i1.hdslb.com/bfs/face/d9230cacf28eb70222828eee82c1665a616e62c4.jpg@100Q.webp@128w_128h_100Q_1c.webp" >
     	<div class="mine-info__text">
 	    	<p class="mine-info__name">
@@ -12,7 +15,7 @@
 	    	</p>
 	    	<span class="iconfont mine-info__icon">&#xe62d;</span>
 	    </div>
-    </div>
+    </router-link>
     <ul class="mine-info__mylist">
     	<li class="borderbottom"><i class="iconfont mine-list__icon">&#xe627;</i>我喜欢的</li>
     	<li class="borderbottom"><i class="iconfont mine-list__icon">&#xe67f;</i>收藏集</li>

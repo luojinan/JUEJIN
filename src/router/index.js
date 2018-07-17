@@ -10,6 +10,8 @@ import HomeAfterend from '@/pages/home/components/HomeAfterend'
 import Find from '@/pages/find/Find'
 import Info from '@/pages/info/Info'
 import Mine from '@/pages/mine/Mine'
+import MineUpdate from '@/common/MineUpdate'
+import MineChange from '@/common/MineChange'
 
 Vue.use(Router)
 
@@ -60,8 +62,18 @@ export default new Router({
     },
     {
       path: '/mine',
-      name: 'Mine',
-      component: Mine
+      component: Mine,
+      name:'Mine'
+    },
+    {
+      path: '/mine/update',
+      component: MineUpdate,
+      name:'MineUpdate'
+    },
+    {
+      path: '/mine/update/change:id',
+      component: MineChange,
+      name:'MineChange'
     }
   ]
 })
