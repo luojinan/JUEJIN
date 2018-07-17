@@ -8,25 +8,21 @@
     	</div>
     </div>
 
-    <div>
+    <div class="findhot-hot">
 	    <swiper  :options="swiperOption" >
 	    	<swiper-slide 
 	    		class="findhot-swiper"
+	    		v-for="(swiper,index) of swipers"
+	    		:key="index"
 	    	>
-		    	<div class="findhot-swiper__item">
-		    		<img class="findhot-swiper__img" src="https://user-gold-cdn.xitu.io/2017/7/5/6d36d47cce7a430e0b6a3e5ec304f02e?imageView2/1/w/960/h/200/q/85/format/jpg/interlace/1" />
-		    		<span class="findhot-swiper__title" >我是标题</span>
+		    	<div
+		    		class="findhot-swiper__item"
+		    		v-for="item of swiper"
+		    		:key="item.number"
+		    	>
+		    		<img class="findhot-swiper__img" :src="item.image" />
+		    		<span class="findhot-swiper__title" >{{item.title}}</span>
 		    	</div>
-	    		<div class="findhot-swiper__item">
-		    		<img class="findhot-swiper__img" src="https://user-gold-cdn.xitu.io/2017/7/5/6d36d47cce7a430e0b6a3e5ec304f02e?imageView2/1/w/960/h/200/q/85/format/jpg/interlace/1" />
-		    		<span class="findhot-swiper__title" >我是标题</span>
-		    	</div>
-	    	</swiper-slide>
-	    	<swiper-slide 
-	    		class="findhot-swiper"
-	    	>
-	    		<img class="findhot-swiper__img" src="https://user-gold-cdn.xitu.io/2017/7/5/6d36d47cce7a430e0b6a3e5ec304f02e?imageView2/1/w/960/h/200/q/85/format/jpg/interlace/1" />
-	    		<span class="findhot-swiper__title" >我是标题</span>
 	    	</swiper-slide>
 	  	</swiper>
 
@@ -35,12 +31,44 @@
 </template>
 
 <script>
+import axios from "axios"
+
 export default {
   name: 'FindHot',
   data:function(){
   	return {
-  		swiperOption:{}
+  		swiperOption:{},
+  		boil:[],
   	}
+  },
+  computed:{
+  	swipers(){
+  		const swipers = []
+  		this.boil.forEach((item,index)=>{
+  			const swiper = Math.floor(index/2)
+  			if(!swipers[swiper]){	//判断是否为0，不为0就大于2
+  				swipers[swiper]=[]
+  			};
+  			swipers[swiper].push(item)
+  		})
+  		return swipers ;
+  	}
+  },
+  methods:{
+  	getFindHotInfo(){
+  		axios.get('/api/data.json').then(this.getFindHotInfoSucc)
+  	},
+  	getFindHotInfoSucc(res){
+  		//console.log(res.data.find.boil)
+  		const data = res.data.find
+  		if(data){
+  			this.boil = data.boil
+  		}
+  	}
+  },
+
+  mounted(){
+  	this.getFindHotInfo()
   }
 }
 </script>
@@ -75,6 +103,9 @@ export default {
 		font-size: .32rem;
 	}
 
+	.findhot-hot{
+		border-bottom: solid .2rem #eee;
+	}
 	.findhot-swiper{
 		overflow: hidden;
 		height: 0;
@@ -84,15 +115,19 @@ export default {
 		flex: 1;
 		float: left;
 		width: 50%;
+		overflow: hidden;
+		height: 0;
+		padding-bottom: 30%;
+		margin-top: .1rem;
+		
 	}
 	.findhot-swiper__img{
 		position: relative;
-		width: 100%;
-
-
 		border-radius: .2rem;
+		height: 2rem;
+		width: 100%;
 	}
-	.findhot-swiper__title{
+	 .findhot-swiper__title{
 		position: absolute;
 		top:.2rem;
 		left:.2rem;
