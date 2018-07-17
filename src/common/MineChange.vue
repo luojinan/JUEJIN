@@ -8,7 +8,7 @@
 				<span class="iconfont update-header__icon">&#xe624;</span>
 			</router-link>
 			<div class="update-header__title">修改名字</div>
-			<div class="update-header__Sure">保存</div>
+			<div @click="handleSureClick" class="update-header__Sure">保存</div>
 		</div>
 		<div class="update-input">
 			<input type="text" v-model="name"> </input>
@@ -25,6 +25,12 @@ export default {
 	  return {
 	  	name:""
 	  }
+	},
+	methods:{
+		handleSureClick(){
+			console.log(this.name)
+			this.name=''
+		}
 	}
  }
 </script>
