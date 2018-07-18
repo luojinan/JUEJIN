@@ -1,18 +1,17 @@
 <template>
 	<div class="change">
 		<div class="update-header">
-			<router-link 
-				to="/mine/update"
-				tag="div"
-				class="update-header__left">
+			<div
+				class="update-header__left"
+				@click="handleChangeBack">
 				<span class="iconfont update-header__icon">&#xe624;</span>
-			</router-link>
-			<div class="update-header__title">修改名字</div>
+			</div>
+			<div class="update-header__title">修改博客地址</div>
 			<div @click="handleSureClick" class="update-header__Sure">保存</div>
 		</div>
 		<div class="update-input">
-			<input type="text" v-model="name"> </input>
-			<p>好的名字让人更容易记住你</p>
+			<input type="text" v-model="boke"> </input>
+			<p>请输入你现在有效的博客地址</p>
 		</div>
 	</div>
 </template>
@@ -23,14 +22,19 @@ export default {
   name: 'MineChange',
   data(){
 	  return {
-	  	name:""
+	  	boke:"",
+	  	open:false
 	  }
 	},
 	methods:{
+		handleChangeBack(){
+			this.$emit('closeShow',this.open)
+		},
 		handleSureClick(){
 			//console.log(this.name)
-			this.$store.dispatch('changeName',this.name)
-			this.name=''
+			this.$store.dispatch('changeBoke',this.boke)
+			this.$emit('closeShow',this.open)
+			this.boke=''
 		}
 	}
  }

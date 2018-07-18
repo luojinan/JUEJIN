@@ -15,30 +15,78 @@
 					<p class="update-info__key">头像</p>
 					<img class="update-info__face--img" src="https://i1.hdslb.com/bfs/face/d9230cacf28eb70222828eee82c1665a616e62c4.jpg@100Q.webp@128w_128h_100Q_1c.webp" />
 				</div>
-				<router-link
-					tag="li"
-					:to="'/mine/update/change'+index" 
+				<li
 					:key="index"
 					v-for="(item,index) of infoKey"
+					@click="handleInfoList(item)"
 					>
 					<p class="update-info__key">{{item}}</p>
 					<p class="update-info__text">{{$store.state.info[item]}}</p>
-				</router-link>
-				
+				</li>
 			</ul>
 		</div>
+
+		<!--修改页面作为组件引入-->
+		<change-name v-show="showName" v-on:closeShow="closeName"></change-name>
+		<change-job v-show="showJob" v-on:closeShow="closeJob"></change-job>
+		<change-boss v-show="showBoss" v-on:closeShow="closeBoss"></change-boss>
+		<change-desc v-show="showDesc" v-on:closeShow="closeDesc"></change-desc>
+		<change-boke v-show="showBoke" v-on:closeShow="closeBoke"></change-boke>
+
 	</div>
 </template>
 
 <script>
+import ChangeName from './ChangeName'
+import ChangeJob from './ChangeJob'
+import ChangeDesc from './ChangeDesc'
+import ChangeBoss from './ChangeBoss'
+import ChangeBoke from './ChangeBoke'
 
 export default {
   name: 'MineUpdate',
   data(){
 	  return {
 	  	infoKey:['姓名','职位','公司','简介','博客地址'],
-	  }
+	  	showName:false,
+	  	showJob:false,
+		showBoss:false,
+		showDesc:false,
+		showBoke:false
+	  } 
+	},
+	components:{
+	  	ChangeName,
+	  	ChangeJob,
+	  	ChangeDesc,
+	  	ChangeBoss,
+	  	ChangeBoke
+	},
+	methods:{
+		handleInfoList(clickWhat){
+			if(clickWhat=="姓名"){this.showName=true}else if(clickWhat=='职位'){
+				this.showJob=true}else if(clickWhat=='公司'){
+					this.showBoss=true}else if(clickWhat=='简介'){
+						this.showDesc=true}else if(clickWhat=='博客地址'){
+							this.showBoke=true}
+		},
+		closeName(close){
+			this.showName = close
+		},
+		closeJob(close){
+			this.showJob = close
+		},
+		closeBoss(close){
+			this.showBoss = close
+		},
+		closeDesc(close){
+			this.showDesc = close
+		},
+		closeBoke(close){
+			this.showBoke = close
+		}
 	}
+
  }
 </script>
 

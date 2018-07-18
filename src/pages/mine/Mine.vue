@@ -11,7 +11,7 @@
 	    		{{this.$store.state.info.姓名}}
 	    	</p>
 	    	<p class="mine-info__desc">
-	    		{{this.$store.state.info.desc}}
+	    		{{this.$store.state.info.简介}}
 	    	</p>
 	    	<span class="iconfont mine-info__icon">&#xe62d;</span>
 	    </div>

@@ -1,12 +1,11 @@
 <template>
 	<div class="change">
 		<div class="update-header">
-			<router-link 
-				to="/mine/update"
-				tag="div"
-				class="update-header__left">
+			<div
+				class="update-header__left"
+				@click="handleChangeBack">
 				<span class="iconfont update-header__icon">&#xe624;</span>
-			</router-link>
+			</div>
 			<div class="update-header__title">修改名字</div>
 			<div @click="handleSureClick" class="update-header__Sure">保存</div>
 		</div>
@@ -23,13 +22,18 @@ export default {
   name: 'MineChange',
   data(){
 	  return {
-	  	name:""
+	  	name:"",
+	  	open:false
 	  }
 	},
 	methods:{
+		handleChangeBack(){
+			this.$emit('closeShow',this.open)
+		},
 		handleSureClick(){
 			//console.log(this.name)
 			this.$store.dispatch('changeName',this.name)
+			this.$emit('closeShow',this.open)
 			this.name=''
 		}
 	}
