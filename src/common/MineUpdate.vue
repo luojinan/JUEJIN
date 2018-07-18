@@ -22,7 +22,7 @@
 					v-for="(item,index) of infoKey"
 					>
 					<p class="update-info__key">{{item}}</p>
-					<p class="update-info__text">我的名字</p>
+					<p class="update-info__text">{{$store.state.info[item]}}</p>
 				</router-link>
 				
 			</ul>
@@ -36,7 +36,7 @@ export default {
   name: 'MineUpdate',
   data(){
 	  return {
-	  	infoKey:['姓名','职位','公司','简介','博客地址']
+	  	infoKey:['姓名','职位','公司','简介','博客地址'],
 	  }
 	}
  }

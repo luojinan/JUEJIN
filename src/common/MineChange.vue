@@ -12,7 +12,7 @@
 		</div>
 		<div class="update-input">
 			<input type="text" v-model="name"> </input>
-			<p>好的名字让人更容易记住你{{name}}</p>
+			<p>好的名字让人更容易记住你</p>
 		</div>
 	</div>
 </template>
@@ -28,7 +28,8 @@ export default {
 	},
 	methods:{
 		handleSureClick(){
-			console.log(this.name)
+			//console.log(this.name)
+			this.$store.dispatch('changeName',this.name)
 			this.name=''
 		}
 	}
