@@ -1,52 +1,58 @@
 <template>
-  <div class="detail">
-  	
+  <div class="detail">	
 	<div class="detail-banner">
 		<img class="detail-banner__img" src="http://i0.hdslb.com/bfs/archive/7dace60479fb74a3ebd1e7a55e50c0781fe2a397.jpg"/>
-	</div>
-	<router-link 
+		<router-link 
 		tag="span"
 		to="/find"
 		class="iconfont detail-banner__back">&#xe624;
-	</router-link>
-	<div class="detail-banner__author-infor">
-        <img src="https://i1.hdslb.com/bfs/face/7696fa55a173dd7b703ef6f398d2fde819f0c7af.jpg@100Q.webp@128w_128h_100Q_1c.webp" />
-        <p>泡芙喵-PuFF</p>
-    </div>
-	<span class="iconfont detail-banner__share">&#xe62f;</span>
-	<div class="detail-banner__info">
-			<div>118人参加</div>
-			<div></div>
-		</div>
-  </div>
+		</router-link>
+		<div class="detail-banner__author-infor">
+	        <img src="https://i1.hdslb.com/bfs/face/7696fa55a173dd7b703ef6f398d2fde819f0c7af.jpg@100Q.webp@128w_128h_100Q_1c.webp" />
+	        <p>泡芙喵-PuFF</p>
+	    </div>
+		<span class="iconfont detail-banner__share">&#xe62f;</span>
+		<div class="detail-banner__info">
+				<div>118人参加</div>
+				<div>{{boildetails.title}}</div>
+		</div>		
+	</div>
+	
+	<detail-centent :boildetails="boildetails"></detail-centent>
+</div>
+	
 </template>
 
 <script>
 import axios from 'axios'
+import DetailCentent from './components/DetailCentent'
 export default {
   name: 'Drtail',
   data(){
   	return {
-  		boildetails
+  		boildetails:{}
   	}
+  },
+  components:{
+  	DetailCentent
   },
   methods:{
   	//axios获取数据方法
   	getAllData(){
-  		axios.get('static/mock/homepage.json').then(this.getAllDataSucc)
+  		axios.get('static/mock/data.json').then(this.getAllDataSucc)
   	},
   	getAllDataSucc(res){
-  		console.log(res.data)
-  		const data =res.data.data
-  		if(res.data.ret && data){
-  			this.boildetails = data.boildetail
+  		console.log(res.data.find.boildetail)
+  		const data =res.data.find
+  		if(res.data && data){
+  			this.boildetails = data.boildetail[0]
   		}
   	}
   },
 
   mounted(){
-  	this.getAllData(),
-	this.scroll = new BScroll(this.$refs.wrapper)
+  	this.getAllData()
+	//this.scroll = new BScroll(this.$refs.wrapper)
   }
 }
 </script>
@@ -55,10 +61,10 @@ export default {
 	.detail-banner{
 		overflow: hidden;
 		height: 0;
-		padding-bottom: 70%;
+		padding-bottom: 60%;
+		position: relative;
 	}
 	.detail-banner__img{
-		position: relative;
 		width: 100%;
 	}
 	.detail-banner__back{
@@ -87,7 +93,7 @@ export default {
 		bottom: .1rem;
 		left: .2rem;
 		color: #fff;
-		color: 32rem;
+		font-size: .32rem;
 	}
 	.detail-banner__author-infor img{
 		float: left;

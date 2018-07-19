@@ -35,7 +35,7 @@ export default {
   name: 'FindEssay',
   data(){
   	return {
-  		essay:[]
+  		essay:{}
   	}
   },
   methods:{
@@ -45,7 +45,7 @@ export default {
   	getFindEssayInfoSucc(res){
   		const data = res.data.find
   		if(data){
-  			this.essay = data.boildetail
+  			this.essay = data.boildetail[0]
   		}
   	}
   },
