@@ -9,7 +9,9 @@
     </div>
 
     <div class="findessay-list">
-	  	<div 
+	  	<router-link
+	  		tag="div"
+	  		:to="'/detail/'+index" 
 	  		class="findessay-item" 
 	  		v-for="(item,index) of essay"
 	  		:key="index"
@@ -21,7 +23,7 @@
 	    		</div>
 	    	</div>
 	    	<img class="findessay-item--img" :src="item.image" />
-	    </div>
+	    </router-link>
 	  </div>
   </div>
 </template>

@@ -11,7 +11,8 @@ import Find from '@/pages/find/Find'
 import Info from '@/pages/info/Info'
 import Mine from '@/pages/mine/Mine'
 import MineUpdate from '@/common/MineUpdate'
-import MineChange from '@/common/MineChange'
+
+import Detail from '@/pages/detail/Detail'
 
 Vue.use(Router)
 
@@ -71,9 +72,9 @@ export default new Router({
       name:'MineUpdate'
     },
     {
-      path: '/mine/update/change:id',
-      component: MineChange,
-      name:'MineChange'
+      path: '/detail/:id',
+      component: Detail,
+      name:'Detail'
     }
   ]
 })
