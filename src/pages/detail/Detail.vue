@@ -19,7 +19,7 @@
 	</div>
 	
 	<detail-centent :list="boildetails"></detail-centent>
-	<detail-comment></detail-comment>
+	<detail-comment :list="boildetails"></detail-comment>
 </div>
 	
 </template>
