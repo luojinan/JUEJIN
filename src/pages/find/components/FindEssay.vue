@@ -45,7 +45,7 @@ export default {
   	getFindEssayInfoSucc(res){
   		const data = res.data.find
   		if(data){
-  			this.essay = data.boildetail[0]
+  			this.essay = data.boildetail
   		}
   	}
   },

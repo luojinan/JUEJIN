@@ -18,7 +18,8 @@
 		</div>		
 	</div>
 	
-	<detail-centent :boildetails="boildetails"></detail-centent>
+	<detail-centent :list="boildetails"></detail-centent>
+	<detail-comment></detail-comment>
 </div>
 	
 </template>
@@ -26,6 +27,8 @@
 <script>
 import axios from 'axios'
 import DetailCentent from './components/DetailCentent'
+import DetailComment from './components/DetailComment'
+
 export default {
   name: 'Drtail',
   data(){
@@ -34,7 +37,8 @@ export default {
   	}
   },
   components:{
-  	DetailCentent
+  	DetailCentent,
+  	DetailComment
   },
   methods:{
   	//axios获取数据方法
